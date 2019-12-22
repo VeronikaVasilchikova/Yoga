@@ -74,4 +74,22 @@ window.addEventListener('DOMContentLoaded', function() {
 
     setClock('timer', deadline);
 
+    // create a modal window
+
+    let btnMore = document.querySelector('.more');
+    let overlay = document.querySelector('.overlay');
+    let popupClose = document.querySelector('.popup-close');
+
+    btnMore.addEventListener('click', function(e) {
+        overlay.style.display = 'block';
+        this.classList.add('.more-splash');
+        document.body.style.overflow = 'hidden'; // forbid to scroll our page
+    });
+
+    popupClose.addEventListener('click', function(e) {
+        overlay.style.display = 'none';
+        btnMore.classList.remove('.more-splash');
+        document.body.style.overflow = '';
+    })
+
 });
