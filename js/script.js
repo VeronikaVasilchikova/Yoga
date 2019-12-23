@@ -198,5 +198,49 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+
+    // Calculator
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDays = document.querySelectorAll('.counter-block-input')[1],
+        place = document.getElementById('select'),
+        total = document.getElementById('total'),
+        personSum = 0,
+        daySum = 0,
+        totalSum = 0;
+
+        total.innerHTML = 0;
+
+    persons.addEventListener('input', function() {
+        personSum = +this.value;
+        totalSum = (personSum + daySum) * 1000;
+
+        if(restDays.value == '' || persons.value == '') {
+            total.innerHTML = 0;
+        } else {
+            total.innerHTML = totalSum;
+        }
+    });
+
+    restDays.addEventListener('input', function() {
+        daySum = +this.value;
+        totalSum = (personSum + daySum) * 1000;
+
+        if(persons.value == '' || restDays.value == '') {
+            total.innerHTML = 0;
+        } else {
+            total.innerHTML = totalSum;
+        }
+    });
+
+    place.addEventListener('change', function() {
+        if(persons.value == '' || restDays.value == '') {
+            total.innerHTML = 0;
+        } else {
+            let a = totalSum;
+            total.innerHTML = a * this.options[this.selectedIndex].value;
+        }
+    });
     
 });
