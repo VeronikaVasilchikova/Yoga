@@ -7,3 +7,4 @@ Here is an example of landing page with following opportunities:
 3. Working modal popup
 4. Sending user data from two forms
 5. Horizontal slider of pictures with dots-switches
+6. Calculator
